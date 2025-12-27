@@ -28,6 +28,9 @@ public class ClickHouseDataSourceFactory {
 
         if ("true".equalsIgnoreCase(p.getProperty("clickhouse.compress"))) {
             dsProps.setProperty("compress", "1");
+            dsProps.setProperty("compress_algorithm", "gzip");
+        } else {
+            dsProps.setProperty("compress", "0");
         }
 
         HikariConfig cfg = new HikariConfig();
